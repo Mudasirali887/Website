@@ -1,0 +1,68 @@
+[
+  {
+    "id": "p1",
+    "title": "Classic Cotton Tee",
+    "desc": "Premium 180 GSM cotton, breathable everyday comfort.",
+    "price": 1499,
+    "rating": 4.6,
+    "image": "assets/images/product_1.png",
+    "stock": 37,
+    "category": "Apparel",
+    "badge": "Bestseller"
+  },
+  {
+    "id": "p2",
+    "title": "Minimalist Backpack",
+    "desc": "Water-resistant fabric, 15\" laptop sleeve, smart pockets.",
+    "price": 5499,
+    "rating": 4.8,
+    "image": "assets/images/product_2.png",
+    "stock": 18,
+    "category": "Bags",
+    "badge": "New"
+  },
+  {
+    "id": "p3",
+    "title": "Wireless Earbuds Pro",
+    "desc": "ENC calls, 35h battery life, low-latency gaming mode.",
+    "price": 7999,
+    "rating": 4.4,
+    "image": "assets/images/product_3.png",
+    "stock": 24,
+    "category": "Electronics",
+    "badge": "Limited"
+  },
+  {
+    "id": "p4",
+    "title": "Signature Hoodie",
+    "desc": "Soft fleece interior, relaxed fit for all-day comfort.",
+    "price": 3999,
+    "rating": 4.7,
+    "image": "assets/images/product_4.png",
+    "stock": 12,
+    "category": "Apparel",
+    "badge": "-20%"
+  },
+  {
+    "id": "p5",
+    "title": "Smart Fitness Watch",
+    "desc": "AMOLED display, SpO2, 5ATM, 10-day battery.",
+    "price": 11999,
+    "rating": 4.2,
+    "image": "assets/images/product_5.png",
+    "stock": 9,
+    "category": "Electronics",
+    "badge": "Hot"
+  },
+  {
+    "id": "p6",
+    "title": "Eco Water Bottle",
+    "desc": "Double-wall stainless steel, keeps cold 24h.",
+    "price": 1999,
+    "rating": 4.5,
+    "image": "assets/images/product_6.png",
+    "stock": 55,
+    "category": "Lifestyle",
+    "badge": "Save 10%"
+  }
+]

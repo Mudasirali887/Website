@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Sparrow — Elevate Your Everyday</title>
+  <link rel="icon" href="assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="topbar" data-shadow="false">
+    <div class="container flex-between">
+      <a href="#" class="brand flex-between" style="gap:10px">
+        <img src="assets/images/logo.svg" alt="Tech Sparrow logo" class="logo">
+        <span class="brand-text">Tech Sparrow</span>
+      </a>
+      <nav class="nav">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="cartBtn" class="btn primary outline">Cart <span id="cartCount" class="badge">0</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="assets/images/hero-dark.png" alt="" class="hero-bg">
+    <div class="container hero-content">
+      <h1>Elevate Your Everyday</h1>
+      <p>Premium essentials. Honest pricing. Seamless experience — from cart to doorstep.</p>
+      <div class="cta-row">
+        <a href="#products" class="btn primary">Shop New Arrivals</a>
+        <a href="#about" class="btn ghost">Why Tech Sparrow?</a>
+      </div>
+      <div class="hero-badges">
+        <span>Fast Delivery</span><span>Secure Payments</span><span>24/7 Support</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="promo">
+    <div class="container center">
+      End of Season Sale — <strong>Up to 30% OFF</strong> on Apparel. Use code <strong>SPARROW30</strong>.
+    </div>
+  </section>
+
+  <section id="products" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Featured Products</h2>
+          <p class="muted">Curated picks with quality assurance and easy returns.</p>
+        </div>
+        <div class="filters">
+          <input id="searchInput" class="input" placeholder="Search products, tags…"/>
+          <select id="categorySelect" class="select"></select>
+          <select id="sortSelect" class="select">
+            <option value="popular">Sort: Popularity</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+      </div>
+      <div id="grid" class="grid"></div>
+    </div>
+  </section>
+
+  <section id="about" class="section alt">
+    <div class="container split">
+      <div>
+        <h3>Why shop with Tech Sparrow?</h3>
+        <ul class="list">
+          <li>• Genuine products with local warranty.</li>
+          <li>• 7‑day easy exchanges and 30‑day returns.</li>
+          <li>• Cash on Delivery across major Pakistani cities.</li>
+          <li>• B2B & Wholesale pricing available for bulk orders.</li>
+        </ul>
+        <div class="pill-row">
+          <div class="pill">2,500+ Monthly Orders</div>
+          <div class="pill">98% On‑time Delivery</div>
+          <div class="pill">4.7★ Avg. Rating</div>
+          <div class="pill">50+ Partner Brands</div>
+        </div>
+      </div>
+      <div class="card kpis">
+        <div><strong>2,500+</strong><span>Monthly Orders</span></div>
+        <div><strong>98%</strong><span>On‑time Delivery</span></div>
+        <div><strong>4.7★</strong><span>Avg. Rating</span></div>
+        <div><strong>50+</strong><span>Partner Brands</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container split">
+      <div>
+        <h3>Business & B2B</h3>
+        <p>For wholesale, corporate gifting, or custom apparel orders, email <strong>sales@techsparrow.pk</strong> or call <strong>+92 3xx 1234567</strong>.</p>
+        <div class="muted">
+          <p class="strong">Registered Office:</p>
+          <p>Tech Sparrow Pvt. Ltd., 2nd Floor, Trade Center, Lahore, Pakistan</p>
+          <p>NTN: 1234567‑8 • STRN: 12‑34‑5678‑910‑11</p>
+        </div>
+      </div>
+      <form id="contactForm" class="card form">
+        <h4>Contact Us</h4>
+        <input class="input" type="text" placeholder="Your name" required/>
+        <input class="input" type="email" placeholder="Email address" required/>
+        <textarea class="textarea" placeholder="Message" rows="5" required></textarea>
+        <button class="btn primary" type="submit">Send Message</button>
+        <p id="formMsg" class="muted small"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container grid-4">
+      <div>
+        <div class="logo-text">Tech Sparrow</div>
+        <p class="muted small">Quality you can trust. Serving customers across Pakistan since 2020.</p>
+      </div>
+      <div>
+        <h5>Shop</h5>
+        <ul class="links">
+          <li><a href="#products">Apparel</a></li>
+          <li><a href="#products">Electronics</a></li>
+          <li><a href="#products">Lifestyle</a></li>
+          <li><a href="#products">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <ul class="links">
+          <li><a href="#products">Track Order</a></li>
+          <li><a href="#products">Returns & Refunds</a></li>
+          <li><a href="#products">Warranty</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul class="links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container center small muted">© <span id="year"></span> Tech Sparrow Pvt. Ltd. All rights reserved.</div>
+  </footer>
+
+  <div id="cartDrawer" class="drawer">
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <h4>Your Cart</h4>
+        <button id="closeCart" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="drawer-foot">
+        <div class="row-between">
+          <span>Subtotal</span>
+          <strong id="subtotal">PKR 0</strong>
+        </div>
+        <button id="checkoutBtn" class="btn primary block">Proceed to Checkout</button>
+        <p class="muted tiny">Secure checkout • SSL encrypted • All prices inclusive of taxes where applicable.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
