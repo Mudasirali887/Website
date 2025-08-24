@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudasar Ali - Freelance Developer &amp; Data Analyst</title>
+    <link rel="stylesheet" href="./Mudasar Ali - Freelance Developer &amp; Data Analyst_files/all.min.css">
+    <script src="./Mudasar Ali - Freelance Developer &amp; Data Analyst_files/saved_resource"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(25,0,51,0.8) 50%, rgba(0,0,0,0.9) 100%);
+        }
+        
+        .nav-glass {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-glass {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .skill-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 8px;
+            border-radius: 10px;
+            transition: width 2s ease-in-out;
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 15, 15, 0.6);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #00ffcc, #ff00ff, #ff6b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #00ffcc;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ffcc; }
+        }
+        
+        .social-icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: #00ffcc !important;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-10{bottom:2.5rem}.left-1\/2{left:50%}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mt-12{margin-top:3rem}.mt-2{margin-top:0.5rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1{height:0.25rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-48{height:12rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-24{width:6rem}.w-48{width:12rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.rounded-lg{border-radius:0.5rem}.border-2{border-width:2px}.border-4{border-width:4px}.border{border-width:1px}.border-t{border-top-width:1px}.border-\[\#00ffcc\]{--tw-border-opacity:1;border-color:rgb(0 255 204 / var(--tw-border-opacity, 1))}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.bg-\[\#00ccff\]{--tw-bg-opacity:1;background-color:rgb(0 204 255 / var(--tw-bg-opacity, 1))}.bg-\[\#00ffcc\]{--tw-bg-opacity:1;background-color:rgb(0 255 204 / var(--tw-bg-opacity, 1))}.bg-\[\#ff00ff\]{--tw-bg-opacity:1;background-color:rgb(255 0 255 / var(--tw-bg-opacity, 1))}.bg-\[\#ff6b00\]{--tw-bg-opacity:1;background-color:rgb(255 107 0 / var(--tw-bg-opacity, 1))}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-opacity-20{--tw-bg-opacity:0.2}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-\[\#00ffcc\]{--tw-gradient-from:#00ffcc var(--tw-gradient-from-position);--tw-gradient-to:rgb(0 255 204 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#ff00ff\]{--tw-gradient-from:#ff00ff var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 0 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#ff6b00\]{--tw-gradient-from:#ff6b00 var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 107 0 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-\[\#00ccff\]{--tw-gradient-to:#00ccff var(--tw-gradient-to-position)}.to-\[\#cc00ff\]{--tw-gradient-to:#cc00ff var(--tw-gradient-to-position)}.to-\[\#ff0055\]{--tw-gradient-to:#ff0055 var(--tw-gradient-to-position)}.to-\[\#ff00ff\]{--tw-gradient-to:#ff00ff var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.py-12{padding-top:3rem;padding-bottom:3rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-\[\#00ffcc\]{--tw-text-opacity:1;color:rgb(0 255 204 / var(--tw-text-opacity, 1))}.text-\[\#ff00ff\]{--tw-text-opacity:1;color:rgb(255 0 255 / var(--tw-text-opacity, 1))}.text-\[\#ff6b00\]{--tw-text-opacity:1;color:rgb(255 107 0 / var(--tw-text-opacity, 1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-20{opacity:0.2}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-\[\#00ffcc\]:hover{--tw-bg-opacity:1;background-color:rgb(0 255 204 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#ff00ff\]:hover{--tw-bg-opacity:1;background-color:rgb(255 0 255 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#ff6b00\]:hover{--tw-bg-opacity:1;background-color:rgb(255 107 0 / var(--tw-bg-opacity, 1))}.hover\:text-\[\#00ffcc\]:hover{--tw-text-opacity:1;color:rgb(0 255 204 / var(--tw-text-opacity, 1))}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.hover\:text-\[\#ff00ff\]:hover{--tw-text-opacity:1;color:rgb(255 0 255 / var(--tw-text-opacity, 1))}.hover\:text-\[\#ff6b00\]:hover{--tw-text-opacity:1;color:rgb(255 107 0 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:shadow-2xl:hover{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-\[\#00ffcc\]:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(0 255 204 / var(--tw-ring-opacity, 1))}@media (min-width: 768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}</style></head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="nav-glass fixed w-full z-50 py-4 px-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="./Mudasar Ali - Freelance Developer &amp; Data Analyst_files/Logo.png" mudasar="" ali="" logo="" -="" professional="" data="" analyst="" and="" developer="" branding="" with="" modern="" design"="" class="w-10 h-10 rounded-full mr-3">
+                <span class="text-xl font-bold gradient-text">Mudasar Ali</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#home" class="text-white hover:text-[#00ffcc] transition-colors">Home</a>
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#about" class="text-white hover:text-[#00ffcc] transition-colors">About</a>
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#services" class="text-white hover:text-[#00ffcc] transition-colors">Services</a>
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#skills" class="text-white hover:text-[#00ffcc] transition-colors">Skills</a>
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#projects" class="text-white hover:text-[#00ffcc] transition-colors">Projects</a>
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#contact" class="text-white hover:text-[#00ffcc] transition-colors">Contact</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button class="text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="absolute inset-0 opacity-20">
+            <img src="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html" c:\users\nw\onedrive\desktop\mudasar_portfolio\images\profile-pica.png="" alt="Abstract digital background with data visualization elements and coding concepts" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="container mx-auto px-6 z-10 text-center animate-on-scroll animated">
+            <div class="floating mb-8">
+                <img src="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html" alt="Professional portrait of Mudasar Ali - Data Analyst and Python Developer" class="w-48 h-48 rounded-full mx-auto border-4 border-[#00ffcc] shadow-2xl">
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                <span class="gradient-text">Mudasar Ali</span>
+            </h1>
+            
+            <div class="typewriter-container mb-6">
+                <h2 class="text-xl md:text-3xl font-light typewriter" style="">
+                    Data Analysis Expert | Python Developer | Web Designer
+                </h2>
+            </div>
+            
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Transforming complex data into actionable insights with cutting-edge technology and creative solutions
+            </p>
+            
+            <div class="flex justify-center space-x-6">
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#projects" class="bg-gradient-to-r from-[#00ffcc] to-[#ff00ff] text-black font-semibold py-3 px-8 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    View My Work
+                </a>
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#contact" class="border-2 border-[#00ffcc] text-[#00ffcc] font-semibold py-3 px-8 rounded-full hover:bg-[#00ffcc] hover:text-black transition-all duration-300">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#about" class="text-white text-4xl animate-bounce">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-[#00ffcc] to-[#ff00ff] mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll">
+                    <img src="./Mudasar Ali - Freelance Developer &amp; Data Analyst_files/cc6d9301-9ed3-4680-8cb6-6b5c3226c134.png" alt="Mudasar Ali working on data analysis project with multiple screens showing code and visualizations" class="w-full rounded-2xl shadow-2xl">
+                </div>
+                
+                <div class="animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-6">🎓 BSCS Graduate &amp; Data Specialist</h3>
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        I'm Mudasir Ali, a BSCS graduate with expertise in Python, SQL, and R for professional data analysis. I specialize in cleaning, analyzing, and visualizing data using industry-standard tools like pandas, NumPy, matplotlib, seaborn, and ggplot2.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        I provide clean, efficient, and well-documented code tailored to your unique needs. Whether you're a business, researcher, or student, I can help you extract meaningful insights from complex data with speed, clarity, and precision. Let's work together to make your data smarter and your decisions stronger.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-[#00ffcc] rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-database text-black text-xl"></i>
+                            </div>
+                            <span class="font-semibold">Data Analysis</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-[#ff00ff] rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-black text-xl"></i>
+                            </div>
+                            <span class="font-semibold">Web Development</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-[#ff6b00] rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-paint-brush text-black text-xl"></i>
+                            </div>
+                            <span class="font-semibold">Logo Design</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-[#00ccff] rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-black text-xl"></i>
+                            </div>
+                            <span class="font-semibold">Data Visualization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">My Services</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-[#00ffcc] to-[#ff00ff] mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Comprehensive solutions tailored to meet your data and web development needs
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="section-glass p-8 rounded-2xl animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-r from-[#00ffcc] to-[#00ccff] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-bar text-2xl text-black"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Data Analysis</h3>
+                    <p class="text-gray-300 mb-6">
+                        Advanced data analysis using Python, R, and SQL to extract valuable insights from your datasets.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><i class="fas fa-check text-[#00ffcc] mr-2"></i> Data Cleaning &amp; Processing</li>
+                        <li class="flex items-center"><i class="fas fa-check text-[#00ffcc] mr-2"></i> Statistical Analysis</li>
+                        <li class="flex items-center"><i class="fas fa-check text-[#00ffcc] mr-2"></i> Predictive Modeling</li>
+                    </ul>
+                </div>
+                
+                <div class="section-glass p-8 rounded-2xl animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-r from-[#ff00ff] to-[#cc00ff] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-2xl text-black"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Web Development</h3>
+                    <p class="text-gray-300 mb-6">
+                        Modern, responsive web development with clean code and excellent user experience.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><i class="fas fa-check text-[#ff00ff] mr-2"></i> Frontend Development</li>
+                        <li class="flex items-center"><i class="fas fa-check text-[#ff00ff] mr-2"></i> Backend Solutions</li>
+                        <li class="flex items-center"><i class="fas fa-check text-[#ff00ff] mr-2"></i> Responsive Design</li>
+                    </ul>
+                </div>
+                
+                <div class="section-glass p-8 rounded-2xl animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-r from-[#ff6b00] to-[#ff0055] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-2xl text-black"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Design Services</h3>
+                    <p class="text-gray-300 mb-6">
+                        Creative design solutions including logos, UI/UX design, and data visualization.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><i class="fas fa-check text-[#ff6b00] mr-2"></i> Logo &amp; Branding</li>
+                        <li class="flex items-center"><i class="fas fa-check text-[#ff6b00] mr-2"></i> UI/UX Design</li>
+                        <li class="flex items-center"><i class="fas fa-check text-[#ff6b00] mr-2"></i> Data Visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Technical Skills</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-[#00ffcc] to-[#ff00ff] mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Expertise in modern technologies and data analysis tools
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="animate-on-scroll">
+                    <h3 class="text-2xl font-bold mb-8">Programming &amp; Data Analysis</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">Python</span>
+                            <span class="text-[#00ffcc]">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-gradient-to-r from-[#00ffcc] to-[#00ccff]" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">SQL</span>
+                            <span class="text-[#00ffcc]">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-gradient-to-r from-[#00ffcc] to-[#00ccff]" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">R Programming</span>
+                            <span class="text-[#00ffcc]">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-gradient-to-r from-[#00ffcc] to-[#00ccff]" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">JavaScript</span>
+                            <span class="text-[#00ffcc]">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-gradient-to-r from-[#00ffcc] to-[#00ccff]" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll">
+                    <h3 class="text-2xl font-bold mb-8">Tools &amp; Frameworks</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">pandas &amp; NumPy</span>
+                            <span class="text-[#ff00ff]">93%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-gradient-to-r from-[#ff00ff] to-[#cc00ff]" style="width: 93%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">matplotlib &amp; seaborn</span>
+                            <span class="text-[#ff00ff]">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-gradient-to-r from-[#ff00ff] to-[#cc00ff]" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">React.js</span>
+                            <span class="text-[#ff00ff]">82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-gradient-to-r from-[#ff00ff] to-[#cc00ff]" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">Git &amp; GitHub</span>
+                            <span class="text-[#ff00ff]">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress bg-gradient-to-r from-[#ff00ff] to-[#cc00ff]" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-gray-900">
+        <div class="container mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-[#00ffcc] to-[#ff00ff] mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Showcasing my expertise through real-world applications and solutions
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card p-6 rounded-2xl animate-on-scroll">
+                    <div class="mb-6">
+                        <img src="./Mudasar Ali - Freelance Developer &amp; Data Analyst_files/f7fafef0-66a0-4805-b6ee-545730e1c675.png" alt="Sales Data Dashboard with interactive charts and KPIs showing business performance metrics" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="text-xl font-bold mb-2">Sales Data Analysis Dashboard</h3>
+                        <p class="text-gray-400 mb-4">
+                            Comprehensive sales analysis dashboard with interactive visualizations and predictive analytics.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-[#00ffcc] bg-opacity-20 text-[#00ffcc] px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-[#ff00ff] bg-opacity-20 text-[#ff00ff] px-3 py-1 rounded-full text-sm">pandas</span>
+                        <span class="bg-[#ff6b00] bg-opacity-20 text-[#ff6b00] px-3 py-1 rounded-full text-sm">matplotlib</span>
+                    </div>
+                    <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#" class="text-[#00ffcc] font-semibold hover:underline">View Project →</a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card p-6 rounded-2xl animate-on-scroll">
+                    <div class="mb-6">
+                        <img src="./Mudasar Ali - Freelance Developer &amp; Data Analyst_files/f0b9dfaf-8c2a-4edd-b6d9-809a76638a60.png" alt="E-commerce website with modern design, product catalog, and shopping cart functionality" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="text-xl font-bold mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-400 mb-4">
+                            Full-stack e-commerce solution with responsive design and seamless user experience.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-[#00ffcc] bg-opacity-20 text-[#00ffcc] px-3 py-1 rounded-full text-sm">React</span>
+                        <span class="bg-[#ff00ff] bg-opacity-20 text-[#ff00ff] px-3 py-1 rounded-full text-sm">Node.js</span>
+                        <span class="bg-[#ff6b00] bg-opacity-20 text-[#ff6b00] px-3 py-1 rounded-full text-sm">MongoDB</span>
+                    </div>
+                    <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#" class="text-[#00ffcc] font-semibold hover:underline">View Project →</a>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card p-6 rounded-2xl animate-on-scroll">
+                    <div class="mb-6">
+                        <img src="./Mudasar Ali - Freelance Developer &amp; Data Analyst_files/ab8055d4-92c1-45e8-b442-d5599dbd6bee.png" alt="Customer segmentation analysis with clustering algorithms and demographic visualization" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h3 class="text-xl font-bold mb-2">Customer Segmentation Analysis</h3>
+                        <p class="text-gray-400 mb-4">
+                            Machine learning project for customer segmentation using clustering algorithms.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-[#00ffcc] bg-opacity-20 text-[#00ffcc] px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-[#ff00ff] bg-opacity-20 text-[#ff00ff] px-3 py-1 rounded-full text-sm">scikit-learn</span>
+                        <span class="bg-[#ff6b00] bg-opacity-20 text-[#ff6b00] px-3 py-1 rounded-full text-sm">seaborn</span>
+                    </div>
+                    <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#" class="text-[#00ffcc] font-semibold hover:underline">View Project →</a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-on-scroll">
+                <a href="https://github.com/Mudasirali887" target="_blank" class="inline-flex items-center bg-gradient-to-r from-[#00ffcc] to-[#ff00ff] text-black font-semibold py-3 px-8 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    <i class="fab fa-github mr-2"></i>View More on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Get In Touch</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-[#00ffcc] to-[#ff00ff] mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Ready to start your next project? Let's discuss how I can help you achieve your goals.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="animate-on-scroll">
+                    <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-[#00ffcc] rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-black"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Email</p>
+                                <a href="mailto:officialmudasirali@gmail.com" class="text-gray-300 hover:text-[#00ffcc] transition-colors">officialmudasirali@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-[#ff00ff] rounded-full flex items-center justify-center mr-4">
+                                <i class="fab fa-whatsapp text-black"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">WhatsApp</p>
+                                <a href="https://wa.me/923183276922" target="_blank" class="text-gray-300 hover:text-[#ff00ff] transition-colors">+92 318 3276922</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-[#ff6b00] rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-globe text-black"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Freelance Platforms</p>
+                                <div class="flex space-x-4 mt-2">
+                                    <a href="https://www.fiverr.com/s/YRkr9B4" target="_blank" class="text-gray-300 hover:text-[#ff6b00] transition-colors social-icon">
+                                        <i class="fab fa-font-awesome-flag text-xl"></i>
+                                    </a>
+                                    <a href="https://www.upwork.com/freelancers/~014b4410673e9a1d87?mp_source=share" target="_blank" class="text-gray-300 hover:text-[#ff6b00] transition-colors social-icon">
+                                        <i class="fab fa-upwork text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/Mudasirali887" target="_blank" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white hover:bg-[#00ffcc] hover:text-black transition-all social-icon">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white hover:bg-[#ff00ff] hover:text-black transition-all social-icon">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white hover:bg-[#ff6b00] hover:text-black transition-all social-icon">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-glass p-8 rounded-2xl animate-on-scroll">
+                    <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-gray-300 mb-2">Name</label>
+                            <input type="text" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#00ffcc] transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#00ffcc] transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Message</label>
+                            <textarea rows="5" class="w-full bg-gray-800 border border-gray-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-[#00ffcc] transition-all"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-[#00ffcc] to-[#ff00ff] text-black font-semibold py-3 px-8 rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-black border-t border-gray-800">
+        <div class="container mx-auto text-center">
+            <div class="flex justify-center mb-6">
+                <img src="./Mudasar Ali - Freelance Developer &amp; Data Analyst_files/9d73251e-eda9-42cd-bd41-0801f5ffe508.png" alt="Mudasar Ali Logo - Professional branding for data analyst and developer" class="w-10 h-10 rounded-full">
+            </div>
+            
+            <p class="text-gray-400 mb-6">
+                © 2024 Mudasar Ali. All rights reserved.
+            </p>
+            
+            <div class="flex justify-center space-x-6">
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#" class="text-gray-400 hover:text-[#00ffcc] transition-colors">Privacy Policy</a>
+                <a href="file:///C:/Users/Nw/OneDrive/Desktop/mudasar_portfolio/index.html#" class="text-gray-400 hover:text-[#00ffcc] transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
+                
+                if (isVisible) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+
+        // Animate skill bars when they come into view
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const barTop = bar.getBoundingClientRect().top;
+                if (barTop < window.innerHeight - 100) {
+                    bar.style.width = bar.style.width;
+                }
+            });
+        }
+
+        // Initialize animations
+        window.addEventListener('scroll', () => {
+            animateOnScroll();
+            animateSkillBars();
+        });
+
+        // Initial call to check elements already in view
+        window.addEventListener('load', () => {
+            animateOnScroll();
+            animateSkillBars();
+        });
+
+        // Typewriter effect reset
+        function resetTypewriter() {
+            const typewriter = document.querySelector('.typewriter');
+            typewriter.style.animation = 'none';
+            setTimeout(() => {
+                typewriter.style.animation = '';
+            }, 10);
+        }
+
+        // Reset typewriter every 10 seconds
+        setInterval(resetTypewriter, 10000);
+    </script>
+
+
+
+</body></html>
