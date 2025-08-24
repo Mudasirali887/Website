@@ -1,0 +1,104 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: #0a0a23;
+    color: white;
+    line-height: 1.6;
+    padding: 20px;
+}
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+header h1 {
+    font-size: 3rem;
+    color: #3399ff;
+    margin-bottom: 5px;
+}
+header p {
+    font-size: 1.3rem;
+    color: #cccccc;
+}
+section {
+    background: #111138;
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 8px;
+    max-width: 700px;
+    box-shadow: 0 0 15px #3399ffaa;
+}
+h2 {
+    color: #66b3ff;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3399ff;
+    padding-bottom: 5px;
+}
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+li {
+    margin-bottom: 8px;
+}
+#profile-pic-section {
+    text-align: center;
+}
+#profile-pic {
+    width: 165px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #3399ff;
+    margin-bottom: 8px;
+}
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+form input:focus, form textarea:focus {
+    outline: 2px solid #3399ff;
+}
+form button {
+    background-color: #3399ff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+form button:hover {
+    background-color: #1a73e8;
+}
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    section {
+        max-width: 100%;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+}
