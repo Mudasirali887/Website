@@ -1,3 +1,5 @@
+// script.js
+
 // Modal functions
 function openModal() {
   document.getElementById('paymentModal').style.display = 'flex';
@@ -26,13 +28,10 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Dynamic multi-color theme
+// Dynamic multi-color background on refresh
 function randomColor() {
   return 'hsl(' + Math.floor(Math.random()*360) + ', 70%, 50%)';
 }
-document.body.addEventListener('mousemove', function() {
-  document.body.style.background = randomColor();
-});
 window.addEventListener('load', function() {
   document.body.style.background = randomColor();
 });
