@@ -1,204 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tech Sparrow — Elevate Your Everyday</title>
-  <link rel="icon" href="assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-  <header class="topbar" data-shadow="false">
-    <div class="container flex-between">
-      <a href="#" class="brand flex-between" id="brandLink" style="gap:10px">
-        <img src="assets/images/logo.svg" alt="Tech Sparrow logo" class="logo">
-        <span class="brand-text">Tech Sparrow</span>
-      </a>
-      <nav class="nav">
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <button id="cartBtn" class="btn primary outline">Cart <span id="cartCount" class="badge">0</span></button>
-      </nav>
-    </div>
-  </header>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  transition: background 0.5s, color 0.5s;
+}
 
-  <section class="hero">
-    <img src="assets/images/hero-dark.png" alt="" class="hero-bg">
-    <div class="container hero-content">
-      <h1 class="reveal">Elevate Your Everyday</h1>
-      <p class="reveal">Premium essentials. Honest pricing. Seamless experience — from cart to doorstep.</p>
-      <div class="cta-row reveal">
-        <a href="#products" class="btn primary">Shop New Arrivals</a>
-        <a href="#about" class="btn ghost">Why Tech Sparrow?</a>
-      </div>
-      <div class="hero-badges reveal">
-        <span>Fast Delivery</span><span>Secure Payments</span><span>24/7 Support</span>
-      </div>
-    </div>
-  </section>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(90deg, #ff6a00, #ffb600);
+}
 
-  <section class="promo">
-    <div class="container center">
-      End of Season Sale — <strong>Up to 30% OFF</strong> on Apparel. Use code <strong>SPARROW30</strong>.
-    </div>
-  </section>
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
 
-  <section id="products" class="section">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="reveal">Featured Products</h2>
-          <p class="muted reveal">Curated picks with quality assurance and easy returns.</p>
-        </div>
-        <div class="filters reveal">
-          <input id="searchInput" class="input" placeholder="Search products, tags…"/>
-          <select id="categorySelect" class="select"></select>
-          <select id="sortSelect" class="select">
-            <option value="popular">Sort: Popularity</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="newest">Newest</option>
-          </select>
-        </div>
-      </div>
-      <div id="grid" class="grid reveal"></div>
-    </div>
-  </section>
+.nav a:hover {
+  color: #ffeb3b;
+}
 
-  <section id="about" class="section alt">
-    <div class="container split">
-      <div>
-        <h3 class="reveal">Why shop with Tech Sparrow?</h3>
-        <ul class="list reveal">
-          <li>• Genuine products with local warranty.</li>
-          <li>• 7-day easy exchanges and 30-day returns.</li>
-          <li>• Cash on Delivery across major Pakistani cities.</li>
-          <li>• B2B & Wholesale pricing available for bulk orders.</li>
-        </ul>
-        <div class="pill-row reveal">
-          <div class="pill">2,500+ Monthly Orders</div>
-          <div class="pill">98% On-time Delivery</div>
-          <div class="pill">4.7★ Avg. Rating</div>
-          <div class="pill">50+ Partner Brands</div>
-        </div>
-      </div>
-      <div class="card kpis reveal">
-        <div><strong>2,500+</strong><span>Monthly Orders</span></div>
-        <div><strong>98%</strong><span>On-time Delivery</span></div>
-        <div><strong>4.7★</strong><span>Avg. Rating</span></div>
-        <div><strong>50+</strong><span>Partner Brands</span></div>
-      </div>
-    </div>
-  </section>
+.cart-btn {
+  background: #ffb600;
+  border: none;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-  <section id="contact" class="section">
-    <div class="container split">
-      <div>
-        <h3 class="reveal">Business & B2B</h3>
-        <p class="reveal">For wholesale, corporate gifting, or custom apparel orders, email <strong>officialmudasirali@gmail.com</strong> or call <strong>+92 318 3276922</strong>.</p>
-        <div class="muted reveal">
-          <p class="strong">Registered Office:</p>
-          <p>On Fiverr Platform — <a class="fiverr" href="https://www.fiverr.com/s/yvR2RZb" target="_blank" rel="noopener noreferrer" aria-label="Visit Fiverr profile">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8a1 1 0 0 1 1-1z"/><path d="M8 7V5a4 4 0 0 1 4-4 4 4 0 0 1 4 4v2"/><circle cx="12" cy="14" r="3"/></svg>
-            <span>Hire us on Fiverr</span>
-          </a></p>
-          <p>NTN: 1234567-8 • STRN: 12-34-5678-910-11</p>
-        </div>
-      </div>
-      <form id="contactForm" class="card form reveal">
-        <h4>Contact Us</h4>
-        <input class="input" type="text" placeholder="Your name" required/>
-        <input class="input" type="email" placeholder="Email address" required/>
-        <textarea class="textarea" placeholder="Message" rows="5" required></textarea>
-        <button class="btn primary" type="submit">Send Message</button>
-        <p id="formMsg" class="muted small"></p>
-      </form>
-    </div>
-  </section>
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+}
 
-  <footer class="footer">
-    <div class="container grid-4">
-      <div>
-        <div class="logo-text" id="footerLogoText">Tech Sparrow</div>
-        <p class="muted small" id="footerQuality">Quality you can trust. Serving customers across Pakistan since 2020.</p>
-      </div>
-      <div>
-        <h5>Shop</h5>
-        <ul class="links">
-          <li><a href="#products">Apparel</a></li>
-          <li><a href="#products">Electronics</a></li>
-          <li><a href="#products">Lifestyle</a></li>
-          <li><a href="#products">Gift Cards</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Support</h5>
-        <ul class="links">
-          <li><a href="#products">Track Order</a></li>
-          <li><a href="#products">Returns & Refunds</a></li>
-          <li><a href="#products">Warranty</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Legal</h5>
-        <ul class="links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container center small muted">© <span id="year"></span> Tech Sparrow Pvt. Ltd. All rights reserved.</div>
-  </footer>
+.section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
 
-  <!-- Payment Modal -->
-  <div class="modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="payTitle">
-    <div class="panel">
-      <div class="panel-head">
-        <h4 id="payTitle">Select Payment Method</h4>
-        <button class="icon-btn" id="closePayment" aria-label="Close">✕</button>
-      </div>
-      <p class="muted small">Currently, payments are accepted to our Easypaisa account. Other methods will be enabled soon.</p>
-      <div class="banks" role="radiogroup" aria-label="Payment Methods">
-        <label class="bank-option"><input type="radio" name="pay" value="easypaisa" checked> Easypaisa (Recommended)</label>
-        <label class="bank-option"><input type="radio" name="pay" value="jazzcash"> JazzCash</label>
-        <label class="bank-option"><input type="radio" name="pay" value="bank"> Bank Transfer</label>
-        <label class="bank-option"><input type="radio" name="pay" value="card"> Debit/Credit Card</label>
-      </div>
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-      <div id="easypaisaBox" class="hint">
-        <strong>Pay to (Easypaisa):</strong>
-        <div class="ep-row">
-          <div>
-            <div>Title Name: <strong>Mudasar Ali</strong></div>
-            <div>Number: <strong id="epNum">0318 3276922</strong></div>
-          </div>
-          <button class="btn ghost" id="copyEP">Copy Number</button>
-        </div>
-        <ol class="small">
-          <li>Open Easypaisa app, choose <em>Send Money → Mobile</em>.</li>
-          <li>Paste the number and confirm the name.</li>
-          <li>Enter amount and complete payment.</li>
-        </ol>
-      </div>
+.btn {
+  background: #ffb600;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
 
-      <div id="otherBox" class="hint" style="display:none">
-        For now, please pay via <strong>Easypaisa</strong> using the details above. Other methods will appear here once enabled.
-      </div>
+.btn:hover {
+  background: #ffeb3b;
+}
 
-      <div class="modal-actions">
-        <button class="btn primary" id="markPaid">I have paid</button>
-        <button class="btn ghost" id="cancelPay">Cancel</button>
-      </div>
-      <p id="payMsg" class="small muted"></p>
-    </div>
-  </div>
+.ghost {
+  background: transparent;
+  border: 2px solid #ffb600;
+  color: #ffb600;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+footer {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, #ff6a00, #ffb600);
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.copy-btn {
+  margin-top: 10px;
+  background: #ffb600;
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
