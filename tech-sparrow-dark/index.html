@@ -1,471 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tech Sparrow — Elevate Your Everyday</title>
-  <link rel="icon" href="assets/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Body: Inter, UI; Display/Brand: Playfair Display -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Sparrow</title>
   <style>
-    :root{
-      /* Light + Gold theme */
-      --bg: #fffaf2;
-      --surface: #ffffff;
-      --text: #171614;
-      --muted: #6b6257;
-      --border: #e9e1d4;
-      --primary: #d4a017; /* rich gold */
-      --primary-600:#b78912;
-      --primary-700:#9a740f;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
-      --radius-xl: 18px;
-      --radius-2xl: 24px;
-      --radius-full: 999px;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fffaf0;
+      color: #333;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text); background:var(--bg);
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    header {
+      background: linear-gradient(90deg, #d4af37, #f9f295);
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-family: 'Playfair Display', serif;
+      font-weight: bold;
+      color: #333;
     }
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-    .container{width:min(1100px, 92%); margin-inline:auto}
-
-    /* Topbar */
-    .topbar{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px);
-      background:rgba(255, 250, 242, 0.7); border-bottom:1px solid var(--border);
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: #fff;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .flex-between{display:flex; align-items:center; justify-content:space-between}
-    .brand{display:flex; align-items:center; gap:10px; padding:10px 0}
-    .brand .logo{width:36px; height:36px}
-    .brand .brand-text{font-family:"Playfair Display", serif; font-weight:800; letter-spacing:.3px; font-size:1.35rem;
-      background:linear-gradient(90deg, #b8890e, #e5be53 60%, #b8890e);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
     }
-    .nav{display:flex; gap:18px}
-    .nav a{padding:10px 6px; color:var(--muted)}
-    .nav a:hover{color:var(--text)}
-
-    /* Buttons */
-    .btn{appearance:none; border:none; cursor:pointer; font-weight:600; border-radius:12px; padding:12px 16px}
-    .btn.primary{background:linear-gradient(180deg, var(--primary), var(--primary-600)); color:#1b1405; box-shadow:0 6px 14px rgba(212,160,23,.25)}
-    .btn.primary:hover{filter:saturate(1.05)}
-    .btn.primary.outline{background:transparent; border:1.5px solid var(--primary); color:var(--primary-700)}
-    .btn.ghost{background:transparent; border:1px solid var(--border); color:var(--text)}
-    .btn.block{width:100%}
-    .icon-btn{background:#fff; border:1px solid var(--border); width:36px; height:36px; border-radius:10px}
-
-    .badge{display:inline-flex; align-items:center; justify-content:center; min-width:22px; height:22px; padding:0 6px; border-radius:999px; background:var(--primary); color:#1b1405; font-size:12px; margin-left:6px}
-
-    /* Hero */
-    .hero{position:relative; overflow:hidden; border-bottom:1px solid var(--border)}
-    .hero::before{ /* soft pattern instead of background logo text */
-      content:""; position:absolute; inset:0; pointer-events:none;
-      background:
-        radial-gradient(circle at 20% -10%, rgba(229,190,83,.22), transparent 45%),
-        radial-gradient(circle at 80% 10%, rgba(212,160,23,.15), transparent 40%),
-        linear-gradient(180deg, rgba(255,255,255,.0), rgba(255,255,255,.7));
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
     }
-    .hero-bg{display:none} /* hide the old image with brand text */
-    .hero-content{position:relative; padding:80px 0 56px; text-align:center}
-    .hero h1{font-family:"Playfair Display", serif; font-size: clamp(2rem, 4vw, 3.2rem); margin:0 0 10px}
-    .hero p{color:var(--muted); margin:0 0 20px}
-    .cta-row{display:flex; gap:12px; justify-content:center}
-    .hero-badges{display:flex; gap:12px; justify-content:center; margin-top:16px; flex-wrap:wrap}
-    .hero-badges span{border:1px solid var(--border); padding:8px 12px; border-radius:999px; font-size:.9rem; background:#fff}
-
-    /* Promo */
-    .promo{background:#fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
-    .promo .container{padding:10px 0; color:#1b1405}
-    .promo strong{color:var(--primary-700)}
-
-    /* Sections */
-    .section {padding:54px 0}
-    .section.alt{background:#fff}
-    .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap}
-    .section h2{margin:0 0 6px; font-size:1.6rem}
-    .muted{color:var(--muted)}
-    .small{font-size:.95rem}
-    .tiny{font-size:.8rem}
-
-    /* Inputs */
-    .filters{display:flex; gap:10px; align-items:center}
-    .input,.select,.textarea{background:#fff; border:1px solid var(--border); border-radius:12px; padding:12px 14px; outline:none}
-    .textarea{width:100%; resize:vertical}
-
-    /* Grid */
-    .grid{display:grid; grid-template-columns:repeat(12, 1fr); gap:16px; margin-top:20px}
-    #grid > .card{grid-column: span 3; min-height: 280px}
-    @media (max-width: 1024px){ #grid > .card{grid-column: span 4} }
-    @media (max-width: 720px){ #grid > .card{grid-column: span 6} }
-    @media (max-width: 520px){ #grid > .card{grid-column: span 12} }
-
-    /* Cards */
-    .card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-xl); box-shadow:var(--shadow)}
-    .card .card-img{height:170px; border-bottom:1px solid var(--border); border-top-left-radius:inherit; border-top-right-radius:inherit; object-fit:cover}
-    .card .card-body{padding:14px}
-    .price{font-weight:700}
-    .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; padding:20px}
-    .kpis > div{background:#fff; border:1px dashed var(--border); border-radius:16px; padding:14px; text-align:center}
-
-    /* Split layout */
-    .split{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px}
-    @media (max-width: 900px){ .split{grid-template-columns:1fr;}}
-
-    .list{list-style:none; padding-left:0; margin:14px 0}
-
-    /* Footer */
-    .footer{border-top:1px solid var(--border); background:#fff}
-    .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; padding:28px 0}
-    @media (max-width: 900px){ .grid-4{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width: 540px){ .grid-4{grid-template-columns:1fr} }
-    .links{list-style:none; padding:0; margin:8px 0}
-    .links li{margin:6px 0}
-    .logo-text{font-family:"Playfair Display", serif; font-weight:800; font-size:1.2rem; background:linear-gradient(90deg,#b8890e,#e5be53); -webkit-background-clip:text; color:transparent}
-    .center{text-align:center}
-
-    /* Drawer (kept but unused by default) */
-    .drawer{position:fixed; inset:0; display:none}
-    .drawer.open{display:block}
-    .drawer::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.4)}
-    .drawer-panel{position:absolute; right:0; top:0; height:100%; width:min(420px, 92%); background:#fff; border-left:1px solid var(--border); display:flex; flex-direction:column}
-    .drawer-head{padding:16px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between}
-    .drawer-foot{margin-top:auto; padding:16px; border-top:1px solid var(--border)}
-    .cart-items{padding:16px; overflow:auto}
-
-    /* Payment Modal */
-    .modal{position:fixed; inset:0; display:none; z-index:100}
-    .modal.open{display:grid; place-items:center}
-    .modal::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.45)}
-    .modal .panel{position:relative; background:#fff; border:1px solid var(--border); border-radius:var(--radius-2xl); box-shadow:var(--shadow); width:min(640px, 92%); padding:20px}
-    .modal h4{margin:0 0 12px}
-    .banks{display:grid; gap:10px}
-    .bank-option{display:flex; align-items:center; gap:10px; border:1px solid var(--border); border-radius:12px; padding:10px}
-    .hint{background:#fff7df; border:1px dashed #f0d07a; padding:10px 12px; border-radius:12px}
-
-    /* Fiverr badge */
-    .fiverr{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--border); padding:8px 12px; border-radius:999px; background:#fff}
-    .fiverr svg{width:18px; height:18px}
-
-    /* Scroll Animations */
-    .reveal{opacity:0; transform: translateY(16px); transition: all .7s cubic-bezier(.2,.7,.2,1)}
-    .reveal.in{opacity:1; transform:none}
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .services, .about, .contact, .products {
+      margin-bottom: 50px;
+    }
+    .btn {
+      background: #d4af37;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background: #b9962e;
+    }
+    footer {
+      background: #d4af37;
+      color: #333;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .cart-btn {
+      background: #d4af37;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .copy-btn {
+      margin-top: 10px;
+      background: #d4af37;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="topbar" data-shadow="false">
-    <div class="container flex-between">
-      <a href="#" class="brand" id="brandLink" aria-label="Tech Sparrow home">
-        <img src="assets/images/logo.svg" alt="Tech Sparrow logo" class="logo"/>
-        <span class="brand-text">Tech Sparrow</span>
-      </a>
-      <nav class="nav">
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <button id="cartBtn" class="btn primary outline">Cart <span id="cartCount" class="badge">0</span></button>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1 class="reveal">Elevate Your Everyday</h1>
-      <p class="reveal" style="transition-delay:.05s">Premium essentials. Honest pricing. Seamless experience — from cart to doorstep.</p>
-      <div class="cta-row reveal" style="transition-delay:.1s">
-        <a href="#products" class="btn primary">Shop New Arrivals</a>
-        <a href="#about" class="btn ghost">Why Tech Sparrow?</a>
-      </div>
-      <div class="hero-badges reveal" style="transition-delay:.15s">
-        <span>Fast Delivery</span><span>Secure Payments</span><span>24/7 Support</span>
-      </div>
-    </div>
-  </section>
+<header>Tech Sparrow</header>
 
-  <!-- Promo -->
-  <section class="promo">
-    <div class="container center">
-      End of Season Sale — <strong>Up to 30% OFF</strong> on Apparel. Use code <strong>SPARROW30</strong>.
-    </div>
-  </section>
+<nav>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#products">Products</a>
+  <a href="#contact">Contact</a>
+  <button class="cart-btn" onclick="openModal()">Cart</button>
+</nav>
 
-  <!-- Products -->
-  <section id="products" class="section">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="reveal">Featured Products</h2>
-          <p class="muted reveal" style="transition-delay:.05s">Curated picks with quality assurance and easy returns.</p>
-        </div>
-        <div class="filters reveal" style="transition-delay:.1s">
-          <input id="searchInput" class="input" placeholder="Search products, tags…"/>
-          <select id="categorySelect" class="select"></select>
-          <select id="sortSelect" class="select">
-            <option value="popular">Sort: Popularity</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="newest">Newest</option>
-          </select>
-        </div>
-      </div>
-      <div id="grid" class="grid reveal" style="transition-delay:.15s"></div>
-    </div>
-  </section>
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>Tech Sparrow is your trusted platform for digital innovation and business growth. We provide modern solutions, AI tools, and technology services for individuals and enterprises.</p>
+</section>
 
-  <!-- About -->
-  <section id="about" class="section alt">
-    <div class="container split">
-      <div>
-        <h3 class="reveal">Why shop with Tech Sparrow?</h3>
-        <ul class="list reveal" style="transition-delay:.05s">
-          <li>• Genuine products with local warranty.</li>
-          <li>• 7‑day easy exchanges and 30‑day returns.</li>
-          <li>• Cash on Delivery across major Pakistani cities.</li>
-          <li>• B2B & Wholesale pricing available for bulk orders.</li>
-        </ul>
-        <div class="pill-row reveal" style="transition-delay:.1s">
-          <div class="pill">2,500+ Monthly Orders</div>
-          <div class="pill">98% On‑time Delivery</div>
-          <div class="pill">4.7★ Avg. Rating</div>
-          <div class="pill">50+ Partner Brands</div>
-        </div>
-      </div>
-      <div class="card kpis reveal" style="transition-delay:.15s">
-        <div><strong>2,500+</strong><span>Monthly Orders</span></div>
-        <div><strong>98%</strong><span>On‑time Delivery</span></div>
-        <div><strong>4.7★</strong><span>Avg. Rating</span></div>
-        <div><strong>50+</strong><span>Partner Brands</span></div>
-      </div>
-    </div>
-  </section>
+<section id="services" class="services">
+  <h2>Services</h2>
+  <ul>
+    <li>Full Stack Web Development</li>
+    <li>AI & Data Analysis Tools</li>
+    <li>Business Automation Solutions</li>
+    <li>Educational Platforms</li>
+  </ul>
+</section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="container split">
-      <div>
-        <h3 class="reveal">Business & B2B</h3>
-        <p class="reveal" style="transition-delay:.05s">For wholesale, corporate gifting, or custom apparel orders, email <strong>officialmudasirali@gmail.com</strong> or call <strong>+92 318 3276922</strong>.</p>
-        <div class="muted reveal" style="transition-delay:.1s">
-          <p class="strong">Registered Office:</p>
-          <p>On Fiverr Platform — <a class="fiverr" href="https://www.fiverr.com/s/yvR2RZb" target="_blank" rel="noopener noreferrer" aria-label="Visit Fiverr profile">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8a1 1 0 0 1 1-1z"/><path d="M8 7V5a4 4 0 0 1 4-4 4 4 0 0 1 4 4v2"/><circle cx="12" cy="14" r="3"/></svg>
-            <span>Hire us on Fiverr</span>
-          </a></p>
-          <p>NTN: 1234567‑8 • STRN: 12‑34‑5678‑910‑11</p>
-        </div>
-      </div>
-      <form id="contactForm" class="card form reveal" style="transition-delay:.15s">
-        <h4>Contact Us</h4>
-        <input class="input" type="text" placeholder="Your name" required/>
-        <input class="input" type="email" placeholder="Email address" required/>
-        <textarea class="textarea" placeholder="Message" rows="5" required></textarea>
-        <button class="btn primary" type="submit">Send Message</button>
-        <p id="formMsg" class="muted small"></p>
-      </form>
-    </div>
-  </section>
+<section id="products" class="products">
+  <h2>Products</h2>
+  <p>We offer custom-built applications, AI integrations, and software designed to meet your business needs.</p>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container grid-4">
-      <div>
-        <div class="logo-text" id="footerLogoText">Tech Sparrow</div>
-        <p class="muted small" id="footerQuality">Quality you can trust. Serving customers across Pakistan since 2020.</p>
-      </div>
-      <div>
-        <h5>Shop</h5>
-        <ul class="links">
-          <li><a href="#products">Apparel</a></li>
-          <li><a href="#products">Electronics</a></li>
-          <li><a href="#products">Lifestyle</a></li>
-          <li><a href="#products">Gift Cards</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Support</h5>
-        <ul class="links">
-          <li><a href="#products">Track Order</a></li>
-          <li><a href="#products">Returns & Refunds</a></li>
-          <li><a href="#products">Warranty</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Legal</h5>
-        <ul class="links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container center small muted">© <span id="year"></span> Tech Sparrow Pvt. Ltd. All rights reserved.</div>
-  </footer>
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Email: officialmudasirali@gmail.com</p>
+  <p>Phone: +92 318 3276922</p>
+  <p>Registered Office: On Fiverr Platform</p>
+  <p><a href="https://www.fiverr.com" target="_blank">Visit our Fiverr Profile</a></p>
+</section>
 
-  <!-- Cart Drawer kept (not used) -->
-  <div id="cartDrawer" class="drawer" aria-hidden="true">
-    <div class="drawer-panel">
-      <div class="drawer-head">
-        <h4>Your Cart</h4>
-        <button id="closeCart" class="icon-btn" aria-label="Close">✕</button>
-      </div>
-      <div id="cartItems" class="cart-items"></div>
-      <div class="drawer-foot">
-        <div class="row-between" style="display:flex; justify-content:space-between">
-          <span>Subtotal</span>
-          <strong id="subtotal">PKR 0</strong>
-        </div>
-        <button id="checkoutBtn" class="btn primary block">Proceed to Checkout</button>
-        <p class="muted tiny">Secure checkout • SSL encrypted • All prices inclusive of taxes where applicable.</p>
-      </div>
-    </div>
+<footer onclick="location.reload()">
+  Tech Sparrow — Quality you can trust.
+</footer>
+
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <h3>Payment Options</h3>
+    <p><strong>Easypaisa</strong> (Preferred)</p>
+    <p>Title: Mudasar Ali</p>
+    <p>Number: <span id="easypaisaNumber">0318 3276922</span></p>
+    <button class="copy-btn" onclick="copyNumber()">Copy Number</button>
+    <br><br>
+    <button class="btn" onclick="closeModal()">Close</button>
   </div>
+</div>
 
-  <!-- Payment Modal -->
-  <div class="modal" id="paymentModal" role="dialog" aria-modal="true" aria-labelledby="payTitle">
-    <div class="panel">
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:6px">
-        <h4 id="payTitle">Select Payment Method</h4>
-        <button class="icon-btn" id="closePayment" aria-label="Close">✕</button>
-      </div>
-      <p class="muted small" style="margin-top:0">Currently, payments are accepted to our Easypaisa account. Other methods will be enabled soon.</p>
-      <div class="banks" role="radiogroup" aria-label="Payment Methods">
-        <label class="bank-option"><input type="radio" name="pay" value="easypaisa" checked> Easypaisa (Recommended)</label>
-        <label class="bank-option"><input type="radio" name="pay" value="jazzcash"> JazzCash</label>
-        <label class="bank-option"><input type="radio" name="pay" value="bank"> Bank Transfer</label>
-        <label class="bank-option"><input type="radio" name="pay" value="card"> Debit/Credit Card</label>
-      </div>
-      <div id="easypaisaBox" class="hint" style="margin-top:12px">
-        <strong>Pay to (Easypaisa):</strong>
-        <div style="display:grid; grid-template-columns:1fr auto; align-items:center; gap:8px; margin-top:6px">
-          <div>
-            <div>Title Name: <strong>Mudasar Ali</strong></div>
-            <div>Number: <strong id="epNum">0318 3276922</strong></div>
-          </div>
-          <button class="btn ghost" id="copyEP">Copy Number</button>
-        </div>
-        <ol class="small" style="margin:10px 0 0 18px">
-          <li>Open Easypaisa app, choose <em>Send Money → Mobile</em>.</li>
-          <li>Paste the number and confirm the name.</li>
-          <li>Enter amount and complete payment.</li>
-        </ol>
-      </div>
-      <div id="otherBox" class="hint" style="margin-top:12px; display:none">
-        For now, please pay via <strong>Easypaisa</strong> using the details above. Other methods will appear here once enabled.
-      </div>
-      <div style="display:flex; gap:10px; margin-top:14px">
-        <button class="btn primary" id="markPaid">I have paid</button>
-        <button class="btn ghost" id="cancelPay">Cancel</button>
-      </div>
-      <p id="payMsg" class="small muted" style="margin-top:8px"></p>
-    </div>
-  </div>
+<script>
+  function revealOnScroll() {
+    const sections = document.querySelectorAll('section');
+    const triggerBottom = window.innerHeight * 0.85;
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Simple product mock so grid isn't empty
-    const sampleProducts = Array.from({length:8}).map((_,i)=>({
-      id:i+1,
-      title:`Product ${i+1}`,
-      price: 2499 + i*500,
-      img:`https://picsum.photos/seed/ts${i}/600/400`
-    }));
-    const grid = document.getElementById('grid');
-    function renderProducts(list){
-      grid.innerHTML = list.map(p=>`
-        <div class="card reveal">
-          <img class="card-img" src="${p.img}" alt="${p.title}">
-          <div class="card-body">
-            <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
-              <div>
-                <div style="font-weight:600">${p.title}</div>
-                <div class="price">PKR ${p.price.toLocaleString()}</div>
-              </div>
-              <button class="btn primary" data-add="${p.id}">Add</button>
-            </div>
-          </div>
-        </div>
-      `).join('');
-      observeReveals();
-    }
-    renderProducts(sampleProducts);
-
-    // Animations on scroll (auto motion like your portfolio)
-    const io = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
-    },{threshold:.12});
-    function observeReveals(){
-      document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
-    }
-    observeReveals();
-
-    // CART → open Payment directly (as requested)
-    const cartBtn = document.getElementById('cartBtn');
-    const paymentModal = document.getElementById('paymentModal');
-    const closePayment = document.getElementById('closePayment');
-    const cancelPay = document.getElementById('cancelPay');
-    const markPaid = document.getElementById('markPaid');
-    const payMsg = document.getElementById('payMsg');
-    const easypaisaBox = document.getElementById('easypaisaBox');
-    const otherBox = document.getElementById('otherBox');
-
-    function openPayment(){ paymentModal.classList.add('open'); payMsg.textContent=''; }
-    function closePaymentModal(){ paymentModal.classList.remove('open'); }
-
-    cartBtn.addEventListener('click', openPayment);
-    closePayment.addEventListener('click', closePaymentModal);
-    cancelPay.addEventListener('click', closePaymentModal);
-
-    document.querySelectorAll('input[name="pay"]').forEach(r=>{
-      r.addEventListener('change', (e)=>{
-        if(e.target.value==='easypaisa'){ easypaisaBox.style.display='block'; otherBox.style.display='none'; }
-        else { easypaisaBox.style.display='none'; otherBox.style.display='block'; }
-      });
+    sections.forEach(sec => {
+      const boxTop = sec.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        sec.classList.add('visible');
+      }
     });
+  }
 
-    document.getElementById('copyEP').addEventListener('click', ()=>{
-      const raw = '03183276922';
-      navigator.clipboard.writeText(raw).then(()=>{
-        payMsg.textContent = 'Easypaisa number copied to clipboard.';
-      });
-    });
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
 
-    markPaid.addEventListener('click', ()=>{
-      payMsg.textContent = 'Thank you! We\'ll verify your Easypaisa payment shortly.';
-      setTimeout(()=>{ closePaymentModal(); }, 1200);
-    });
+  function openModal() {
+    document.getElementById('paymentModal').style.display = 'flex';
+  }
+  function closeModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+  }
+  function copyNumber() {
+    const num = document.getElementById('easypaisaNumber').innerText;
+    navigator.clipboard.writeText(num);
+    alert('Number copied: ' + num);
+  }
+</script>
 
-    // Keep footer texts clickable → refresh the page (not anchor-jump)
-    function refresh(){ window.location.reload(); }
-    document.getElementById('footerLogoText').addEventListener('click', refresh);
-    document.getElementById('footerQuality').addEventListener('click', refresh);
-
-    // Prevent background brand text in hero image (if any old asset leaks)
-    // We already hid .hero-bg, but in case external CSS re-enables, keep this safeguard:
-    document.querySelectorAll('.hero-bg').forEach(el=> el.style.display='none');
-
-    // Contact form (demo only)
-    document.getElementById('contactForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      document.getElementById('formMsg').textContent = 'Thanks! We will get back to you at the earliest.';
-      e.target.reset();
-    });
-
-    // Optional: sticky shadow on scroll
-    const topbar = document.querySelector('.topbar');
-    window.addEventListener('scroll', ()=>{
-      const sc = window.scrollY; topbar.style.boxShadow = sc>6 ? '0 6px 16px rgba(0,0,0,.06)' : 'none';
-    });
-  </script>
 </body>
 </html>
