@@ -1,112 +1,78 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
-  transition: background 0.5s, color 0.5s;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Sparrow</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: linear-gradient(90deg, #ff6a00, #ffb600);
-}
+<header class="header">
+  <div class="brand">Tech Sparrow</div>
+  <nav class="nav">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+    <button class="cart-btn" onclick="openModal()">Cart</button>
+  </nav>
+</header>
 
-.nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  transition: color 0.3s;
-}
+<section id="hero" class="hero">
+  <h1>Elevate Your Everyday</h1>
+  <p>Premium essentials. Honest pricing. Seamless experience — from cart to doorstep.</p>
+  <div class="cta-buttons">
+    <button class="btn">Shop Now</button>
+    <button class="btn ghost">Learn More</button>
+  </div>
+</section>
 
-.nav a:hover {
-  color: #ffeb3b;
-}
+<section id="about" class="section">
+  <h2>About Us</h2>
+  <p>Tech Sparrow is your trusted platform for digital innovation and business growth.</p>
+</section>
 
-.cart-btn {
-  background: #ffb600;
-  border: none;
-  color: #000;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
+<section id="services" class="section">
+  <h2>Services</h2>
+  <ul>
+    <li>Full Stack Web Development</li>
+    <li>AI & Data Analysis Tools</li>
+    <li>Business Automation Solutions</li>
+    <li>Educational Platforms</li>
+  </ul>
+</section>
 
-.hero {
-  padding: 100px 20px;
-  text-align: center;
-}
+<section id="products" class="section">
+  <h2>Products</h2>
+  <p>We offer custom-built applications, AI integrations, and software designed to meet your business needs.</p>
+</section>
 
-.section {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
-}
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <p>Email: officialmudasirali@gmail.com</p>
+  <p>Phone: +92 318 3276922</p>
+  <p>Registered Office: On Fiverr Platform <a href="https://www.fiverr.com/s/yvR2RZb" target="_blank">Fiverr Profile</a></p>
+</section>
 
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+<footer onclick="location.reload()">
+  Tech Sparrow — Quality you can trust.
+</footer>
 
-.btn {
-  background: #ffb600;
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s;
-}
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <h3>Payment Options</h3>
+    <p><strong>Easypaisa</strong> (Preferred)</p>
+    <p>Title: Mudasar Ali</p>
+    <p>Number: <span id="easypaisaNumber">0318 3276922</span></p>
+    <button class="copy-btn" onclick="copyNumber()">Copy Number</button>
+    <br><br>
+    <button class="btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
 
-.btn:hover {
-  background: #ffeb3b;
-}
-
-.ghost {
-  background: transparent;
-  border: 2px solid #ffb600;
-  color: #ffb600;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: linear-gradient(90deg, #ff6a00, #ffb600);
-  cursor: pointer;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: #111;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.copy-btn {
-  margin-top: 10px;
-  background: #ffb600;
-  color: #000;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-}
+<script src="script.js"></script>
+</body>
+</html>
