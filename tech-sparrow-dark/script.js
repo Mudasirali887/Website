@@ -1,147 +1,102 @@
+// Set year
+document.getElementById('year').textContent = new Date().getFullYear();
 
-const fmt = new Intl.NumberFormat('en-PK', {style:'currency', currency:'PKR', maximumFractionDigits:0});
-const topbar = document.querySelector('.topbar');
+// Sample products to populate grid (replace with real data if available)
+const sampleProducts = Array.from({length:8}).map((_,i)=>({
+  id: i+1,
+  title: `Product ${i+1}`,
+  price: 2499 + i*500,
+  img: `https://picsum.photos/seed/ts${i}/600/400`
+}));
 const grid = document.getElementById('grid');
-const searchInput = document.getElementById('searchInput');
-const categorySelect = document.getElementById('categorySelect');
-const sortSelect = document.getElementById('sortSelect');
-const cartBtn = document.getElementById('cartBtn');
-const cartCount = document.getElementById('cartCount');
-const cartDrawer = document.getElementById('cartDrawer');
-const closeCart = document.getElementById('closeCart');
-const cartItems = document.getElementById('cartItems');
-const subtotalEl = document.getElementById('subtotal');
-const checkoutBtn = document.getElementById('checkoutBtn');
-const yearEl = document.getElementById('year');
-yearEl.textContent = new Date().getFullYear();
 
-let PRODUCTS = [];
-let CART = JSON.parse(localStorage.getItem('ts:cart')||'[]');
-
-fetch('products.json').then(r=>r.json()).then(data=>{
-  PRODUCTS = data.map(d=>({...d, created: Date.now() - Math.floor(Math.random()*1e9)}));
-  initFilters();
-  render();
-});
-
-function initFilters(){
-  const cats = ['All', ...Array.from(new Set(PRODUCTS.map(p=>p.category)))];
-  categorySelect.innerHTML = cats.map(c=>`<option value="${c}">${c}</option>`).join('');
-  searchInput.addEventListener('input', render);
-  categorySelect.addEventListener('change', render);
-  sortSelect.addEventListener('change', render);
-}
-
-function render(){
-  const q = (searchInput.value||'').trim().toLowerCase();
-  const cat = categorySelect.value || 'All';
-  let list = PRODUCTS.filter(p =>
-    (cat==='All' || p.category===cat) &&
-    (p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q))
-  );
-  const s = sortSelect.value;
-  if(s==='price-asc') list.sort((a,b)=>a.price-b.price);
-  if(s==='price-desc') list.sort((a,b)=>b.price-a.price);
-  if(s==='newest') list.sort((a,b)=>b.created-a.created);
-
-  grid.innerHTML = list.map(p => `
-    <div class="card product-card">
-      <img src="${p.image}" alt="${p.title}">
-      ${p.badge ? `<div class="pill" style="display:inline-block;margin-top:8px;">${p.badge}</div>` : ''}
-      <div class="title">${p.title}</div>
-      <p class="desc">${p.desc}</p>
-      <div class="meta">
-        <span class="price">${fmt.format(p.price)}</span>
-        <span class="stock">Stock: ${p.stock}</span>
-      </div>
-      <div style="display:flex;gap:10px;margin-top:10px">
-        <button class="btn primary" onclick="addToCart('${p.id}')">Add to Cart</button>
-        <button class="btn ghost" onclick="alert('Product details page can be added later.')">Details</button>
-      </div>
-    </div>
-  `).join('');
-
-  updateCartBadge();
-}
-
-function addToCart(id){
-  const p = PRODUCTS.find(x=>x.id===id);
-  if(!p) return;
-  const ex = CART.find(x=>x.id===id);
-  if(ex){ ex.qty = Math.min(10, ex.qty + 1); }
-  else { CART.push({id:p.id, title:p.title, price:p.price, image:p.image, qty:1}); }
-  persistCart();
-  updateCartBadge();
-  openCart();
-}
-
-function updateCartBadge(){
-  const count = CART.reduce((a,b)=>a+b.qty,0);
-  cartCount.textContent = count;
-}
-
-function persistCart(){
-  localStorage.setItem('ts:cart', JSON.stringify(CART));
-  renderCart();
-}
-
-function renderCart(){
-  if(!cartItems) return;
-  if(CART.length===0){
-    cartItems.innerHTML = '<p class="muted">Your cart is empty.</p>';
-    subtotalEl.textContent = fmt.format(0);
-    return;
-  }
-  cartItems.innerHTML = CART.map(item=>`
-    <div class="cart-row">
-      <img src="${item.image}" alt="">
-      <div>
-        <div class="strong">${item.title}</div>
-        <div class="muted small">${fmt.format(item.price)}</div>
-        <div class="qty">
-          <button class="icon-btn" onclick="changeQty('${item.id}', -1)">−</button>
-          <input type="number" min="1" max="10" value="${item.qty}" onchange="setQty('${item.id}', this.value)"/>
-          <button class="icon-btn" onclick="changeQty('${item.id}', 1)">+</button>
+function renderProducts(list){
+  grid.innerHTML = list.map(p=>`
+    <div class="card reveal">
+      <img class="card-img" src="${p.img}" alt="${p.title}">
+      <div class="card-body">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+          <div>
+            <div style="font-weight:600">${p.title}</div>
+            <div class="price">PKR ${p.price.toLocaleString()}</div>
+          </div>
+          <button class="btn primary" data-add="${p.id}">Add</button>
         </div>
       </div>
-      <button class="icon-btn" onclick="removeItem('${item.id}')">✕</button>
     </div>
   `).join('');
-  const subtotal = CART.reduce((s,i)=>s + i.price*i.qty, 0);
-  subtotalEl.textContent = fmt.format(subtotal);
+  observeReveals();
 }
+renderProducts(sampleProducts);
 
-function openCart(){ cartDrawer.classList.add('open'); renderCart(); }
-function closeDrawer(){ cartDrawer.classList.remove('open'); }
+// Intersection Observer for reveal animations
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('in');
+  });
+},{threshold:.12});
+function observeReveals(){
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+}
+observeReveals();
 
-cartBtn.addEventListener('click', openCart);
-closeCart.addEventListener('click', closeDrawer);
-cartDrawer.addEventListener('click', (e)=>{ if(e.target===cartDrawer) closeDrawer(); });
-checkoutBtn.addEventListener('click', ()=>{
-  alert('Checkout flow can be connected to COD/Stripe/JazzCash later.');
+// Payment modal logic
+const cartBtn = document.getElementById('cartBtn');
+const paymentModal = document.getElementById('paymentModal');
+const closePayment = document.getElementById('closePayment');
+const cancelPay = document.getElementById('cancelPay');
+const markPaid = document.getElementById('markPaid');
+const payMsg = document.getElementById('payMsg');
+const easypaisaBox = document.getElementById('easypaisaBox');
+const otherBox = document.getElementById('otherBox');
+const copyEP = document.getElementById('copyEP');
+
+function openPayment(){ paymentModal.classList.add('open'); payMsg.textContent=''; }
+function closePaymentModal(){ paymentModal.classList.remove('open'); }
+
+cartBtn.addEventListener('click', openPayment);
+closePayment.addEventListener('click', closePaymentModal);
+cancelPay.addEventListener('click', closePaymentModal);
+
+document.querySelectorAll('input[name="pay"]').forEach(r=>{
+  r.addEventListener('change', (e)=>{
+    if(e.target.value==='easypaisa'){ easypaisaBox.style.display='block'; otherBox.style.display='none'; }
+    else { easypaisaBox.style.display='none'; otherBox.style.display='block'; }
+  });
 });
 
-function changeQty(id, delta){
-  const it = CART.find(i=>i.id===id);
-  if(!it) return;
-  it.qty = Math.max(1, Math.min(10, it.qty + delta));
-  persistCart();
-}
-function setQty(id, val){
-  const it = CART.find(i=>i.id===id);
-  if(!it) return;
-  const q = Math.max(1, Math.min(10, parseInt(val || '1',10)));
-  it.qty = q;
-  persistCart();
-}
-function removeItem(id){
-  CART = CART.filter(i=>i.id!==id);
-  persistCart();
-  updateCartBadge();
-}
+copyEP.addEventListener('click', ()=>{
+  const raw = '03183276922';
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(raw).then(()=> payMsg.textContent = 'Easypaisa number copied to clipboard.');
+  } else {
+    payMsg.textContent = 'Please copy manually: ' + raw;
+  }
+});
 
-// Topbar shadow on scroll
-window.addEventListener('scroll', () => {
-  const on = window.scrollY > 12;
-  topbar.setAttribute('data-shadow', on ? 'true' : 'false');
+markPaid.addEventListener('click', ()=>{
+  payMsg.textContent = 'Thank you! We will verify your Easypaisa payment shortly.';
+  setTimeout(()=> closePaymentModal(), 1200);
+});
+
+// Footer clickable refresh
+document.getElementById('footerLogoText').addEventListener('click', ()=> window.location.reload());
+document.getElementById('footerQuality').addEventListener('click', ()=> window.location.reload());
+
+// Hide hero-bg in case external CSS tries to show it
+document.querySelectorAll('.hero-bg').forEach(el=> el.style.display='none');
+
+// Contact form handling (demo)
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  document.getElementById('formMsg').textContent = 'Thanks! We will get back to you at the earliest.';
+  e.target.reset();
+});
+
+// Optional small sticky shadow on topbar
+const topbar = document.querySelector('.topbar');
+window.addEventListener('scroll', ()=>{
+  const sc = window.scrollY;
+  topbar.style.boxShadow = sc>6 ? '0 6px 16px rgba(0,0,0,.06)' : 'none';
 });
