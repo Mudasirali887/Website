@@ -1,102 +1,38 @@
-// Set year
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// Sample products to populate grid (replace with real data if available)
-const sampleProducts = Array.from({length:8}).map((_,i)=>({
-  id: i+1,
-  title: `Product ${i+1}`,
-  price: 2499 + i*500,
-  img: `https://picsum.photos/seed/ts${i}/600/400`
-}));
-const grid = document.getElementById('grid');
-
-function renderProducts(list){
-  grid.innerHTML = list.map(p=>`
-    <div class="card reveal">
-      <img class="card-img" src="${p.img}" alt="${p.title}">
-      <div class="card-body">
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
-          <div>
-            <div style="font-weight:600">${p.title}</div>
-            <div class="price">PKR ${p.price.toLocaleString()}</div>
-          </div>
-          <button class="btn primary" data-add="${p.id}">Add</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-  observeReveals();
+// Modal functions
+function openModal() {
+  document.getElementById('paymentModal').style.display = 'flex';
 }
-renderProducts(sampleProducts);
-
-// Intersection Observer for reveal animations
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add('in');
-  });
-},{threshold:.12});
-function observeReveals(){
-  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+function closeModal() {
+  document.getElementById('paymentModal').style.display = 'none';
 }
-observeReveals();
+function copyNumber() {
+  const num = document.getElementById('easypaisaNumber').innerText;
+  navigator.clipboard.writeText(num);
+  alert('Number copied: ' + num);
+}
 
-// Payment modal logic
-const cartBtn = document.getElementById('cartBtn');
-const paymentModal = document.getElementById('paymentModal');
-const closePayment = document.getElementById('closePayment');
-const cancelPay = document.getElementById('cancelPay');
-const markPaid = document.getElementById('markPaid');
-const payMsg = document.getElementById('payMsg');
-const easypaisaBox = document.getElementById('easypaisaBox');
-const otherBox = document.getElementById('otherBox');
-const copyEP = document.getElementById('copyEP');
+// Scroll reveal
+function revealOnScroll() {
+  const sections = document.querySelectorAll('section');
+  const triggerBottom = window.innerHeight * 0.85;
 
-function openPayment(){ paymentModal.classList.add('open'); payMsg.textContent=''; }
-function closePaymentModal(){ paymentModal.classList.remove('open'); }
-
-cartBtn.addEventListener('click', openPayment);
-closePayment.addEventListener('click', closePaymentModal);
-cancelPay.addEventListener('click', closePaymentModal);
-
-document.querySelectorAll('input[name="pay"]').forEach(r=>{
-  r.addEventListener('change', (e)=>{
-    if(e.target.value==='easypaisa'){ easypaisaBox.style.display='block'; otherBox.style.display='none'; }
-    else { easypaisaBox.style.display='none'; otherBox.style.display='block'; }
+  sections.forEach(sec => {
+    const boxTop = sec.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      sec.classList.add('visible');
+    }
   });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// Dynamic multi-color theme
+function randomColor() {
+  return 'hsl(' + Math.floor(Math.random()*360) + ', 70%, 50%)';
+}
+document.body.addEventListener('mousemove', function() {
+  document.body.style.background = randomColor();
 });
-
-copyEP.addEventListener('click', ()=>{
-  const raw = '03183276922';
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(raw).then(()=> payMsg.textContent = 'Easypaisa number copied to clipboard.');
-  } else {
-    payMsg.textContent = 'Please copy manually: ' + raw;
-  }
-});
-
-markPaid.addEventListener('click', ()=>{
-  payMsg.textContent = 'Thank you! We will verify your Easypaisa payment shortly.';
-  setTimeout(()=> closePaymentModal(), 1200);
-});
-
-// Footer clickable refresh
-document.getElementById('footerLogoText').addEventListener('click', ()=> window.location.reload());
-document.getElementById('footerQuality').addEventListener('click', ()=> window.location.reload());
-
-// Hide hero-bg in case external CSS tries to show it
-document.querySelectorAll('.hero-bg').forEach(el=> el.style.display='none');
-
-// Contact form handling (demo)
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  document.getElementById('formMsg').textContent = 'Thanks! We will get back to you at the earliest.';
-  e.target.reset();
-});
-
-// Optional small sticky shadow on topbar
-const topbar = document.querySelector('.topbar');
-window.addEventListener('scroll', ()=>{
-  const sc = window.scrollY;
-  topbar.style.boxShadow = sc>6 ? '0 6px 16px rgba(0,0,0,.06)' : 'none';
+window.addEventListener('load', function() {
+  document.body.style.background = randomColor();
 });
